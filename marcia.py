@@ -1,7 +1,6 @@
-import os
 import telebot
 
-API_TOKEN = os.getenv('MARCIA_API_TOKEN')
+from config import *
 
 bot = telebot.TeleBot(API_TOKEN)
 
@@ -15,6 +14,5 @@ def send_welcome(message):
 @bot.message_handler(func=lambda message: True)
 def echo_message(message):
 	bot.reply_to(message, message.text)
-
 
 bot.infinity_polling()
