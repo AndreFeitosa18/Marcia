@@ -1,8 +1,7 @@
 import telebot
+import config
 
-from config import *
-
-bot = telebot.TeleBot(API_TOKEN)
+bot = telebot.TeleBot(config.API_TOKEN)
 
 # Handle '/start' and '/help'
 @bot.message_handler(commands=['help', 'start'])
