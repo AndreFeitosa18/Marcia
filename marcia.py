@@ -4,6 +4,7 @@ from telebot.storage import StateMemoryStorage, StateStorageBase
 from telebot.types import Message
 
 import config
+from menu.main import MainMenu
 
 
 class Marcia(TeleBot):
@@ -15,6 +16,8 @@ class Marcia(TeleBot):
 		@self.message_handler(commands=['start'])
 		def start_command(message: Message) -> None:
 			self.reply_to(message, 'Comando /start')
+		# Register main menu response methods:
+		MainMenu().register_response_methods(self)
 		# Decorates the function that echoes sent messages:
 		@self.message_handler(func=lambda message: True)
 		def echo_message(message: Message) -> None:
